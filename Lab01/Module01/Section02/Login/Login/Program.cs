@@ -1,7 +1,7 @@
 ﻿// Author Diana
 // NSCC
 // Sept 19, 2022
-// Test if the code entered is correct
+// Test if the code inputted is correct
 
 using System;
 
