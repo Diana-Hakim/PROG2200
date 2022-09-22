@@ -30,13 +30,15 @@ namespace Zodiac
             Person person4 = new Person(8, 13);
             Console.WriteLine("Leo: " + person4.Zodiac);
 
+            Person person5 = new Person(13, 13);
+            Console.WriteLine("Not Found: " + person5.Zodiac);
 
 
             //Input
             Console.WriteLine("\n\nINPUT TESTING:\n");
             while (true) { 
-                Person person5 = new Person(); //input
-                Console.WriteLine(person5.Zodiac);
+                Person person6 = new Person(); //input
+                Console.WriteLine(person6.Zodiac);
             }
 
         }
