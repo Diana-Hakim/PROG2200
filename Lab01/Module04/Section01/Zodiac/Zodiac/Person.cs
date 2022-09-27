@@ -9,13 +9,15 @@ namespace Zodiac
 
         //public string FirstName { get; set; }
         //public string LastName { get; set; }
-        public int Month { get; set; }
-        public int Day { get; set; }
+        public int BirthMonth { get; set; }
+        public int BirthDay { get; set; }
         //public int Age { get; set;}
         public string Zodiac { get; set; }
 
+
         // Static varribles for calcutions and error checking
         //months per year and days per month
+        enum Month {January = 1, February = 2, March = 3, April = 4, May = 5, June = 6, July = 7, August = 8, September = 9, October = 10, November = 11, December = 12}
         private static readonly int LASTMONTHYEAR = 12; // FIRST MONTH OF THE YEAR
         private static readonly int FIRSTMONTHYEAR = 1; // LAST MONTH OF THE YEAR
         private static readonly int FIRSTDAYMONTH = 1;
@@ -29,8 +31,8 @@ namespace Zodiac
         {
             // Get the users input
             Console.WriteLine("Find your Zodiac:");
-            Month = InputMonth();
-            Day = InputDay();
+            BirthMonth = InputMonth();
+            BirthDay = InputDay();
             Zodiac = SetZodiac();
         }
 
@@ -46,8 +48,8 @@ namespace Zodiac
             
             }
             // assign 
-            Month = month;
-            Day = date;
+            BirthMonth = month;
+            BirthDay = date;
             Zodiac = SetZodiac();
         }
 
@@ -58,32 +60,32 @@ namespace Zodiac
         public string SetZodiac()
         {  
             // Switch
-            switch (Month) // Note: I believe that a switch case could be replaced for something beter 
-            { //> Zodiac = ZODIACNAMES[FindZodiac(ZODIACDATES[Month], Month-1, Month)]; and a if statement for december would work fine
-                case 1:// Jan:  Capricorn vs Aquarius
-                    return ZODIACNAMES[FindZodiac(ZODIACDATES[Month - 1], Month - 1, Month)]; 
-                case 2:// Feb:  Aquarius vs Pisces
-                    return ZODIACNAMES[FindZodiac(ZODIACDATES[Month - 1], Month - 1, Month)]; 
-                case 3:// Mar:  Pisces vs Aries
-                    return ZODIACNAMES[FindZodiac(ZODIACDATES[Month - 1], Month - 1, Month)]; 
-                case 4:// Apr:  Aries vs Taurus
-                    return ZODIACNAMES[FindZodiac(ZODIACDATES[Month - 1], Month - 1, Month)]; 
-                case 5:// May:  Taurus vs Gemini
-                    return ZODIACNAMES[FindZodiac(ZODIACDATES[Month - 1], Month - 1, Month)]; 
-                case 6:// June: Gemini vs Cancer
-                    return ZODIACNAMES[FindZodiac(ZODIACDATES[Month - 1], Month - 1, Month)]; 
-                case 7:// July: Cancer vs Leo
-                    return ZODIACNAMES[FindZodiac(ZODIACDATES[Month - 1], Month - 1, Month)]; 
-                case 8:// Aug:  Leo vs Virgo
-                    return ZODIACNAMES[FindZodiac(ZODIACDATES[Month - 1], Month - 1, Month)]; 
-                case 9:// Sept: Virgo vs Libra
-                    return ZODIACNAMES[FindZodiac(ZODIACDATES[Month - 1], Month - 1, Month)]; 
-                case 10:// Oct:  Libra vs Scorpio
-                    return ZODIACNAMES[FindZodiac(ZODIACDATES[Month - 1], Month - 1, Month)]; 
-                case 11:// Nov:  Scorpio vs Sagittarius
-                    return ZODIACNAMES[FindZodiac(ZODIACDATES[Month - 1], Month - 1, Month)]; 
-                case 12:// Dec:  Sagittarius vs Capricorn
-                    return ZODIACNAMES[FindZodiac(ZODIACDATES[Month - 1], Month - 1, 0)];
+            switch ((Month)BirthMonth) // Note: I believe that a switch case could be replaced for something beter 
+            { //> Zodiac = ZODIACNAMES[FindZodiac(ZODIACDATES[BirthMonth], BirthMonth-1, BirthMonth)]; and a if statement for december would work fine
+                case Month.January:// Jan:  Capricorn vs Aquarius
+                    return ZODIACNAMES[FindZodiac(ZODIACDATES[BirthMonth - 1], BirthMonth - 1, BirthMonth)]; 
+                case Month.February:// Feb:  Aquarius vs Pisces
+                    return ZODIACNAMES[FindZodiac(ZODIACDATES[BirthMonth - 1], BirthMonth - 1, BirthMonth)]; 
+                case Month.March:// Mar:  Pisces vs Aries
+                    return ZODIACNAMES[FindZodiac(ZODIACDATES[BirthMonth - 1], BirthMonth - 1, BirthMonth)]; 
+                case Month.April:// Apr:  Aries vs Taurus
+                    return ZODIACNAMES[FindZodiac(ZODIACDATES[BirthMonth - 1], BirthMonth - 1, BirthMonth)]; 
+                case Month.May:// May:  Taurus vs Gemini
+                    return ZODIACNAMES[FindZodiac(ZODIACDATES[BirthMonth - 1], BirthMonth - 1, BirthMonth)]; 
+                case Month.June:// June: Gemini vs Cancer
+                    return ZODIACNAMES[FindZodiac(ZODIACDATES[BirthMonth - 1], BirthMonth - 1, BirthMonth)]; 
+                case Month.July:// July: Cancer vs Leo
+                    return ZODIACNAMES[FindZodiac(ZODIACDATES[BirthMonth - 1], BirthMonth - 1, BirthMonth)]; 
+                case Month.August:// Aug:  Leo vs Virgo
+                    return ZODIACNAMES[FindZodiac(ZODIACDATES[BirthMonth - 1], BirthMonth - 1, BirthMonth)]; 
+                case Month.September:// Sept: Virgo vs Libra
+                    return ZODIACNAMES[FindZodiac(ZODIACDATES[BirthMonth - 1], BirthMonth - 1, BirthMonth)]; 
+                case Month.October:// Oct:  Libra vs Scorpio
+                    return ZODIACNAMES[FindZodiac(ZODIACDATES[BirthMonth - 1], BirthMonth - 1, BirthMonth)]; 
+                case Month.November:// Nov:  Scorpio vs Sagittarius
+                    return ZODIACNAMES[FindZodiac(ZODIACDATES[BirthMonth - 1], BirthMonth - 1, BirthMonth)]; 
+                case Month.December:// Dec:  Sagittarius vs Capricorn
+                    return ZODIACNAMES[FindZodiac(ZODIACDATES[BirthMonth - 1], BirthMonth - 1, 0)];
                 default: // Else, should not see because of error checking
                     return "Not Found";
             }
@@ -92,7 +94,7 @@ namespace Zodiac
         public int FindZodiac(int endday, int month1, int month2)
         {
             // Find which month the zodaic is under 
-            return (Day < endday) ? month1 : month2;
+            return (BirthDay < endday) ? month1 : month2;
         }
 
 
@@ -139,7 +141,7 @@ namespace Zodiac
         private int InputDay()
         {
             //Use InputInt function to find users birth date, this will also check to see if the birthday is possible (not needed but usefull to have)
-            return InputInt("Input the date you were born: ", FIRSTDAYMONTH, LASTDAYMONTH[Month-1]); // check if possible
+            return InputInt("Input the date you were born: ", FIRSTDAYMONTH, LASTDAYMONTH[BirthMonth-1]); // check if possible
         }
     }
 }
