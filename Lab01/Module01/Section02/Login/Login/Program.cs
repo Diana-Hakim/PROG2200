@@ -4,53 +4,120 @@
 // Test if the code inputted is correct
 
 using System;
+using System.IO;
 
 namespace Login
 {
     internal class Program
     {
+        public static string FILE_NAME = "code.txt";
+
         static void Main(string[] args)
         {
-            //----------------------Simplifed Video-------------------------------
-            // Create the code variable 
-            string code = "secret";
+            string code = getLastCode();//replace 'getLastCode()' with "'secret'" to remove file element
+            Console.WriteLine("The code is.... "+"'"+code+"'"); // Testing: can be removed
 
             // Get input
             Console.WriteLine("What is the pass code?");
             var codeInput = Console.ReadLine();
 
             // Test if correct
-            bool correct = codeInput == code; //test if the code was correct
-            Console.WriteLine(correct ? "Authenticted" : "Not Authenticted");// no need to write brackets for one command  
-
-            //----------------------------Video-----------------------------------
-            //Console.WriteLine("What is the pass code?");
-            //var codeInput = Console.ReadLine();
-            //if (codeInput == "secert")
-            //{
-            //    Console.WriteLine("Authenticted");
-            //}
-            //else if (codeInput != "secret") 
-            //{
-            //    Console.WriteLine("Not Authenticted");
-            //}
-
-
-            //----------------Testing how I'd fix it---------------------------------------------
-            //SecureString theSecureString = new NetworkCredential("", "secret").SecurePassword;
-            //bool correct = false;
-
-            //while (!loop)
-            //{
-            //    Console.WriteLine("What is the pass code?");
-            //    var codeInput = Console.ReadLine();
-            //    correct = (codeInput == new NetworkCredential("", theSecureString).Password) ? true : false;
-            //    Console.WriteLine(correct ? "Authenticted" : "Not Authenticted");
-            //}
-
-
+            while (!(codeInput == code)) {
+                Console.WriteLine("Not Authenticted");
+                Console.WriteLine("What is the pass code?");
+                codeInput = Console.ReadLine();
+            }
+            newCode(); //change the password comment out to remove file element
+            //code = newCode();// add to remove file element
             Console.ReadLine();
+        }
 
+        
+        private static string newCode()
+        {
+            string code = inputNewCode("Input your new pass code:", 10);
+            saveToFile(code);//comment out to remove file element
+            Console.WriteLine("Password Changed! ");
+            return code;
+        }
+
+        private static string inputNewCode(string context_string, int max)
+        {
+            //input a sting with the given parmeters 
+            int min = 2;
+            Console.Write(context_string);
+            string input = Console.ReadLine();
+            while (!((min <= input.Length) && (input.Length <= max)))
+            {
+                Console.Write("Input Must Be Between " + min + " to " + max + " characters long: ");
+                input = Console.ReadLine();
+            }
+            return input;
+        }
+
+            private static void saveToFile(string txt)
+        {
+            try
+            {
+                using (StreamWriter w = File.AppendText(FILE_NAME))
+                {
+                    AddtoFile(txt, w); // add txt to file
+                    w.Close();
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        
+        private static string getLastCode() {
+            string line;
+            string code = "";
+            StreamReader sr = File.OpenText(FILE_NAME);
+            while ((line = sr.ReadLine()) != null)
+            {
+                code = line;
+            }
+            sr.Close();
+            return code;
+        }
+        public static void AddtoFile(string logMessage, TextWriter w){
+            w.Write("\n"+logMessage);
+            
         }
     }
 }
+
+
+
+
+
+
+
+//----------------------------Video-----------------------------------
+//Console.WriteLine("What is the pass code?");
+//var codeInput = Console.ReadLine();
+//if (codeInput == "secert")
+//{
+//    Console.WriteLine("Authenticted");
+//}
+//else if (codeInput != "secret") 
+//{
+//    Console.WriteLine("Not Authenticted");
+//}
+
+
+//----------------Testing how I'd fix it---------------------------------------------
+//SecureString theSecureString = new NetworkCredential("", "secret").SecurePassword;
+//bool correct = false;
+
+//while (!loop)
+//{
+//    Console.WriteLine("What is the pass code?");
+//    var codeInput = Console.ReadLine();
+//    correct = (codeInput == new NetworkCredential("", theSecureString).Password) ? true : false;
+//    Console.WriteLine(correct ? "Authenticted" : "Not Authenticted");
+//}

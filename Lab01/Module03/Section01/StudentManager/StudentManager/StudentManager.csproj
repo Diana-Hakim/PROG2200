@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{047C2CEF-5F25-4912-8007-4FE8263A6A32}</ProjectGuid>
+    <ProjectGuid>{BF080A62-DD12-4B04-8262-C51532DDA9CE}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>StudentGrades</RootNamespace>
-    <AssemblyName>StudentGrades</AssemblyName>
+    <RootNamespace>StudentManager</RootNamespace>
+    <AssemblyName>StudentManager</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassRoom.cs" />
+    <Compile Include="Console.cs" />
+    <Compile Include="MyCustomException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
