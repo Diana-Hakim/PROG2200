@@ -14,6 +14,7 @@ namespace Login
 
         static void Main(string[] args)
         {
+            // checks if user knows the password before allowing them to change the password. The password is saved after every use
             string code = getLastCode();//replace 'getLastCode()' with "'secret'" to remove file element
             Console.WriteLine("The code is.... "+"'"+code+"'"); // Testing: can be removed
 
@@ -35,6 +36,7 @@ namespace Login
         
         private static string newCode()
         {
+            //get new pass code, from user input 
             string code = inputNewCode("Input your new pass code:", 10);
             saveToFile(code);//comment out to remove file element
             Console.WriteLine("Password Changed! ");
@@ -43,7 +45,7 @@ namespace Login
 
         private static string inputNewCode(string context_string, int max)
         {
-            //input a sting with the given parmeters 
+            //input a sting with the given parmeters, return tring entered if correct
             int min = 2;
             Console.Write(context_string);
             string input = Console.ReadLine();
@@ -54,9 +56,9 @@ namespace Login
             }
             return input;
         }
-
-            private static void saveToFile(string txt)
+        private static void saveToFile(string txt)
         {
+            //Save string to FILE_NAME given
             try
             {
                 using (StreamWriter w = File.AppendText(FILE_NAME))
@@ -73,7 +75,9 @@ namespace Login
         }
 
         
-        private static string getLastCode() {
+        private static string getLastCode() 
+        {
+            //Get the last line of text in a file
             string line;
             string code = "";
             StreamReader sr = File.OpenText(FILE_NAME);
@@ -84,7 +88,9 @@ namespace Login
             sr.Close();
             return code;
         }
-        public static void AddtoFile(string logMessage, TextWriter w){
+        public static void AddtoFile(string logMessage, TextWriter w)
+        {
+            // Write to file
             w.Write("\n"+logMessage);
             
         }

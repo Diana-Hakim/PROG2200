@@ -25,8 +25,6 @@ namespace Survey
             Console.WriteLine(str);
             Console.ForegroundColor = ConsoleColor.White;
         }
-
-
     }
 }
 

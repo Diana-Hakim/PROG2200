@@ -66,10 +66,8 @@ namespace Survey
                 //Videos 1-3
                 //Assign
                 //var anything = "My String";
-
                 //Input
                 //var anything = Console.ReadLine();
-
                 //Output
                 //Console.WriteLine(anything);
 

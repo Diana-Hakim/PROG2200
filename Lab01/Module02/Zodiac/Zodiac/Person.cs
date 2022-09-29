@@ -61,6 +61,9 @@ namespace Zodiac
             switch (Month) // Note: I believe that a switch case could be replaced for something beter 
             { //> Zodiac = ZODIACNAMES[FindZodiac(ZODIACDATES[Month], Month-1, Month)]; and a if statement for december would work fine
                 case 1:// Jan:  Capricorn vs Aquarius
+                    //int zodiac = FindZodiac(ZODIACDATES[Month - 1], Month - 1, Month);
+                    //if (zodiac == 0) { Console.WriteLine("Capricorn"); }
+                    //else { Console.WriteLine("Aquarius"); }
                     return ZODIACNAMES[FindZodiac(ZODIACDATES[Month - 1], Month - 1, Month)]; 
                 case 2:// Feb:  Aquarius vs Pisces
                     return ZODIACNAMES[FindZodiac(ZODIACDATES[Month - 1], Month - 1, Month)]; 

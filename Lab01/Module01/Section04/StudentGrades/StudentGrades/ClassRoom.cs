@@ -16,6 +16,7 @@ namespace StudentGrades
 
         public ClassRoom(string[] studentNames, int[] studentGrades)
         {
+            //Convert two lists to a 2D array, add a student to the 2d array
             convertTo2d(studentNames, studentGrades);
             for (int i = 0; i < (maxClassRoom - studentNames.Length); i++)
             {
@@ -41,6 +42,7 @@ namespace StudentGrades
 
         public bool addStudent(string name, int grade)
         {
+            //Add a student to the 2d array
 
             if (gradebook.GetLength(0) != index)
             {
@@ -60,6 +62,8 @@ namespace StudentGrades
 
         private static void convertTo2d(string[] names, int[] grades)
         {
+            // Merge the two arrays given into one a single two-dimensional array, these arrays must be the same length
+            // This function will ask users to enter what is the max number of items in the array are.
             maxClassRoom = 0;
             while (maxClassRoom < names.Length)
             {

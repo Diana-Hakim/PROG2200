@@ -17,13 +17,19 @@ namespace Zodiac
 
         // Static varribles for calcutions and error checking
         //months per year and days per month
-        enum Month {January = 1, February = 2, March = 3, April = 4, May = 5, June = 6, July = 7, August = 8, September = 9, October = 10, November = 11, December = 12}
+        enum Month {
+            January = 1, February = 2, March = 3, April = 4, May = 5, June = 6, 
+            July = 7, August = 8, September = 9, October = 10, November = 11, December = 12
+        }
         private static readonly int LASTMONTHYEAR = 12; // FIRST MONTH OF THE YEAR
         private static readonly int FIRSTMONTHYEAR = 1; // LAST MONTH OF THE YEAR
         private static readonly int FIRSTDAYMONTH = 1;
         private static readonly int[] LASTDAYMONTH = new int[] { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
         //Z odiac info
-        private static readonly string[] ZODIACNAMES = new string[] { "Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius" };
+        private static readonly string[] ZODIACNAMES = new string[] { 
+            "Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini", 
+            "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius" 
+        };
         private static readonly int[] ZODIACDATES = new int[] { 20, 19, 20, 20, 21, 22, 22, 23, 23, 23, 22, 22 };
 
 
