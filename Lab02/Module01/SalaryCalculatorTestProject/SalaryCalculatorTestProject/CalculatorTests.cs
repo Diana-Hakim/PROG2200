@@ -81,14 +81,17 @@ namespace SalaryCalculatorTestProject
         {
             //Arrange
             SalaryCalculator sc = new SalaryCalculator();
-            //Act
-            //TaxData taxData = sc.TaxWitheld(1000.0, 2);
+            //Act - does not work
+            TaxData taxData = sc.TaxWitheld(1000.0, 2);
+            //Act II - works
+            //TaxData taxData = new TaxData();
+            //taxData.SetValues(sc.Taxwtheld(1000.0, 2));
             //Assert
-            //Assert.AreEqual(60.0, taxData.ProvincialTaxWithheld);
-            //Assert.AreEqual(250.0, taxData.FederalTaxwithheld);
-            //Assert.AreEqual(40.0, taxData.DependentDeduction);
-            //Assert.AreEqual(270.0, taxData.TotalWithheld);
-            //Assert.AreEqual(730.0, taxData.TakeHome);
+            Assert.AreEqual(60.0, taxData.ProvincialTaxWithheld);
+            Assert.AreEqual(250.0, taxData.FederalTaxwithheld);
+            Assert.AreEqual(40.0, taxData.DependentDeduction);
+            Assert.AreEqual(270.0, taxData.TotalWithheld);
+            Assert.AreEqual(730.0, taxData.TakeHome);
         }
     }// end of class
 }
