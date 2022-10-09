@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Calculator;
-using System.Runtime.InteropServices.ComTypes;
 
 namespace SalaryCalculatorTestProject
 {
@@ -66,7 +65,7 @@ namespace SalaryCalculatorTestProject
             SalaryCalculator sc = new SalaryCalculator();
             try
             {
-                decimal annualSalary = sc.GetHourlyWage(-50);
+                decimal annualSalary = sc.GetHourlyWage(-5);
                 Assert.Fail("exception");
             }
             catch (InvalidOperationException ex)
