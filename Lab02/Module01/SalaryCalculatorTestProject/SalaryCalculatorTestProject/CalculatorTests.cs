@@ -82,10 +82,10 @@ namespace SalaryCalculatorTestProject
             //Arrange
             SalaryCalculator sc = new SalaryCalculator();
             //Act - does not work
-            TaxData taxData = sc.TaxWitheld(1000.0, 2);
+            //TaxData taxData = sc.TaxWitheld(1000.0, 2);
             //Act II - works
-            //TaxData taxData = new TaxData();
-            //taxData.SetValues(sc.Taxwtheld(1000.0, 2));
+            TaxData taxData = new TaxData();
+            taxData.SetValues(sc.Taxwtheld(1000.0, 2));
             //Assert
             Assert.AreEqual(60.0, taxData.ProvincialTaxWithheld);
             Assert.AreEqual(250.0, taxData.FederalTaxwithheld);

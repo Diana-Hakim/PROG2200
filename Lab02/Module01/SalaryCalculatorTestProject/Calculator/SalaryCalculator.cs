@@ -35,20 +35,20 @@ namespace Calculator
             return annualSalary / HoursInYear; 
         }
 
-        public global::SalaryCalculatorTestProject.TaxData TaxWitheld(double weeklysalary, int numdependents)
-        {
-            // calculate with rates 
-            double provincialtaxwithheld = weeklysalary * PROVINCIAL_RATE;
-            double federaltaxwithheld = weeklysalary * FEDERAL_RATE;
-            double dependentdeduction = numdependents * (weeklysalary * DEPENDENT_RATE);
-            // totals
-            double totalwithheld = provincialtaxwithheld + federaltaxwithheld + dependentdeduction;
-            Log(totalwithheld, "totalwithheld");
-            double totaltakehome = weeklysalary - totalwithheld;
-            Log(totaltakehome, "totaltakehome");
-            // data
-            return (provincialtaxwithheld, federaltaxwithheld, dependentdeduction, totalwithheld, totaltakehome);
-        }
+        //public global::SalaryCalculatorTestProject.TaxData TaxWitheld(double weeklysalary, int numdependents)
+        //{
+        //    // calculate with rates 
+        //    double provincialtaxwithheld = weeklysalary * PROVINCIAL_RATE;
+        //    double federaltaxwithheld = weeklysalary * FEDERAL_RATE;
+        //    double dependentdeduction = numdependents * (weeklysalary * DEPENDENT_RATE);
+        //    // totals
+        //    double totalwithheld = provincialtaxwithheld + federaltaxwithheld + dependentdeduction;
+        //    Log(totalwithheld, "totalwithheld");
+        //    double totaltakehome = weeklysalary - totalwithheld;
+        //    Log(totaltakehome, "totaltakehome");
+        //    // data
+        //    return (provincialtaxwithheld, federaltaxwithheld, dependentdeduction, totalwithheld, totaltakehome);
+        //}
 
         public double[] Taxwtheld(double weeklysalary, int numdependents)
         {
